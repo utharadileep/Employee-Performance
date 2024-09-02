@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Performance Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('static/background.png'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px; /* Limiting the max width for better visibility */
+            text-align: center;
+            overflow-y: auto; /* Enable scroll if content overflows */
+        }
+        h2 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555555;
+            text-align: left;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px; /* Reduced margin for better fit */
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            max-width: 80%; /* Adjusted size for better fit */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="static/hr_image.jpg" alt="Human Resources">
+        </div>
+        <h2>Employee Performance Prediction</h2>
+        <form action="{{ url_for('predict') }}" method="POST">
+            <label for="EmpDepartment">Department:</label>
+            <select name="EmpDepartment">
+                <option value="Sales">Sales</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Development">Development</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Research & Development">Research & Development</option>
+                <option value="Finance">Finance</option>
+            </select>
+
+            <label for="EmpJobRole">Job Role:</label>
+            <select name="EmpJobRole">
+                <option value="Sales Executive">Sales Executive</option>
+                <option value="Manager">Manager</option>
+                <option value="Developer">Developer</option>
+                <option value="Sales Representative">Sales Representative</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Senior Developer">Senior Developer</option>
+                <option value="Data Scientist">Data Scientist</option>
+                <option value="Senior Manager R&D">Senior Manager R&D</option>
+                <option value="Laboratory Technician">Laboratory Technician</option>
+                <option value="Manufacturing Director">Manufacturing Director</option>
+                <option value="Research Scientist">Research Scientist</option>
+                <option value="Healthcare Representative">Healthcare Representative</option>
+                <option value="Research Director">Research Director</option>
+                <option value="Manager R&D">Manager R&D</option>
+                <option value="Finance Manager">Finance Manager</option>
+                <option value="Technical Architect">Technical Architect</option>
+                <option value="Business Analyst">Business Analyst</option>
+                <option value="Technical Lead">Technical Lead</option>
+                <option value="Delivery Manager">Delivery Manager</option>
+            </select>
+
+            <label for="EmpEnvironmentSatisfaction">Environment Satisfaction:</label>
+            <select name="EmpEnvironmentSatisfaction">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Very High">Very High</option>
+            </select>
+
+            <label for="EmpWorkLifeBalance">Work-Life Balance:</label>
+            <select name="EmpWorkLifeBalance">
+                <option value="Bad">Bad</option>
+                <option value="Good">Good</option>
+                <option value="Better">Better</option>
+                <option value="Best">Best</option>
+            </select>
+
+            <label for="EmpLastSalaryHikePercent">Last Salary Hike Percent:</label>
+            <input type="number" name="EmpLastSalaryHikePercent" step="0.01" required>
+
+            <label for="ExperienceYearsAtThisCompany">Years at Company:</label>
+            <input type="number" name="ExperienceYearsAtThisCompany" step="0.01" required>
+
+            <label for="DistanceFromHome">Distance From Home:</label>
+            <input type="number" name="DistanceFromHome" step="0.01" required>
+
+            <label for="ExperienceYearsInCurrentRole">Years in Current Role:</label>
+            <input type="number" name="ExperienceYearsInCurrentRole" step="0.01" required>
+
+            <label for="YearsSinceLastPromotion">Years Since Last Promotion:</label>
+            <input type="number" name="YearsSinceLastPromotion" step="0.01" required>
+
+            <label for="YearsWithCurrManager">Years with Current Manager:</label>
+            <input type="number" name="YearsWithCurrManager" step="0.01" required>
+
+            <label for="EmpJobLevel">Job Level:</label>
+            <input type="number" name="EmpJobLevel" step="0.01" required>
+
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

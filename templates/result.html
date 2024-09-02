@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #dacaca2f;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 20px;
+        }
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="static/hr_image.jpg" alt="Human Resources">
+        </div>
+        <h2>Prediction Result</h2>
+        <p>Predicted performance rating is:</p>
+        <div class="result">{{ prediction }}</div>
+        <a href="{{ url_for('home') }}">Go Back</a>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
