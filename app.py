@@ -4,6 +4,17 @@ import pickle
 
 app = Flask(__name__)
 
+import gzip
+import shutil
+
+input_file = 'model.zip'
+output_file = 'model.pkl'
+
+with gzip.open(input_file, 'rb') as f_in:
+    with open(output_file, 'wb') as f_out:
+        shutil.copyfileobj(f_in, f_out)
+
+
 # Load the scaler and model
 with open('scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)
