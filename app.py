@@ -1,26 +1,24 @@
 from flask import Flask, render_template, request
 import pandas as pd
 import pickle
+import zipfile
 
 app = Flask(__name__)
 
-import gzip
-import shutil
-
+# Unzip the model file
 input_file = 'model.zip'
 output_file = 'model.pkl'
 
-with gzip.open(input_file, 'rb') as f_in:
-    with open(output_file, 'wb') as f_out:
-        shutil.copyfileobj(f_in, f_out)
+with zipfile.ZipFile(input_file, 'r') as zip_ref:
+    zip_ref.extractall()
 
-
-# Load the scaler and model
+# Load the scaler and model from the unzipped file
 with open('scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)
 
-with open('model.pkl', 'rb') as f:
+with open(output_file, 'rb') as f:
     model = pickle.load(f)
+
 
 # Mapping dictionaries for encoding
 department_mapping = {
